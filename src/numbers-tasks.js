@@ -199,6 +199,10 @@ function roundToPowerOfTen(/* num, pow */) {
  *   17 => true
  */
 function isPrime(num) {
+  for (let i = 2; i < num.lenght; i += 1) {
+    if (num % i === 0) return false;
+  }
+  return true;
 }
 
 /**
@@ -232,7 +236,7 @@ function toNumber(/* value, def */) {
  *   0  => 0
  */
 function getCube(num) {
-  return num * 3;
+  return num ** 3;
 }
 
 /**
