@@ -139,10 +139,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return parseFloat(value, 10);
 }
-
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
  *
@@ -156,8 +155,8 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
@@ -199,12 +198,14 @@ function roundToPowerOfTen(/* num, pow */) {
  *   17 => true
  */
 function isPrime(num) {
+  let bul = false;
   for (let i = 2; i < num.lenght; i += 1) {
-    if (num % i === 0) return false;
+    if (num % i === 0) {
+      bul = true;
+    }
   }
-  return true;
+  return bul;
 }
-
 /**
  * Tries to convert value to number and returns it if conversion was successful;
  * otherwise returns default value passed as a second argument.
@@ -220,8 +221,12 @@ function isPrime(num) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = parseInt(value, 10);
+  if (Number.isNaN(num)) {
+    return def;
+  }
+  return num;
 }
 
 /**
@@ -355,8 +360,8 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  return number.toFixed(fractionDigits).toString();
 }
 
 /**
