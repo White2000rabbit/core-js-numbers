@@ -287,10 +287,13 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  const array = [...num.toString()].map(Number);
+  const res = array.reduce((sum, elem) => {
+    return sum + elem;
+  }, 0);
+  return res;
 }
-
 /**
  * Returns true if the given number is a power of two, false otherwise.
  *
@@ -390,8 +393,8 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
 
 /**
